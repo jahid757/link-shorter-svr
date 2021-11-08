@@ -12,6 +12,7 @@ app.use(cors());
 
 const dbName = process.env.DB_NAME;
 const password = process.env.DB_PASSWORD;
+const port = process.env.PORT || 5000;
 
 const { MongoClient } = require("mongodb");
 
@@ -54,4 +55,6 @@ client.connect((err) => {
 app.get("/", (req, res) => {
   res.send("Server Running!");
 });
-app.listen(5000 || process.env.PORT);
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
