@@ -54,4 +54,4 @@ client.connect((err) => {
 app.get("/", (req, res) => {
   res.send("Server Running!");
 });
-app.listen(5000);
+app.listen(5000 || process.env.PORT);
